@@ -1,5 +1,28 @@
 <!DOCTYPE HTML>
 <html lang="en" html-identify = "Token">
+<head>
+	<meta charset="UTF-8">
+	<title>校园卡</title>
+	<style>
+		body {
+			background-color: rgb(240,240,245);
+			width: calc(100%H);
+			height: calc(100%V);
+			display: flex;
+			flex-direction: column;
+		}
+
+.btnArray {
+			display: flex;
+			margin-top: 20px;
+			width: 92%;
+			height: 80px;
+			margin-left: 4%;
+			flex-wrap:wrap;
+		}
+	</style>
+</head>
+
 <body>
 <view class = "btnArray">
 			<view class = "arrayTop">
