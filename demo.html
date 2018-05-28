@@ -1,0 +1,103 @@
+<!DOCTYPE HTML>
+<html lang="en" html-identify = "Token">
+<head>
+	<meta charset="UTF-8">
+	<title>校园卡</title>
+	<style>
+		body {
+			background-color: rgb(240,240,245);
+			width: calc(100%H);
+			height: calc(100%V);
+			display: flex;
+			flex-direction: column;
+		}
+
+.btnArray {
+			display: flex;
+			margin-top: 20px;
+			width: 92%;
+			height: 80px;
+			margin-left: 4%;
+			flex-wrap:wrap;
+		}
+.arrayTop {
+	width: 100%;
+	height: 28px;
+	display: flex;
+	flex-direction: row;
+		}
+
+.topArrayImage {
+			width: 33.3%;
+			height : 20px;
+			imageMode :aspectfit;
+		}
+
+.arrayText {
+			height: 24px;
+			width: 33.3%;
+			text-align: center;
+			font-size: 13px;
+		}
+		
+	</style>
+</head>
+
+<body>
+<view class = "btnArray">
+			<view class = "arrayTop">
+				<image class = "topArrayImage" src = "https://web.wutnews.net/Application/Card/Assets/image/charge.png" imageMode = "aspectfit"></image>
+				<image class = "topArrayImage" src = "https://web.wutnews.net/Application/Card/Assets/image/web.png" imageMode = "aspectfit"></image>
+				<image class = "topArrayImage" src = "https://web.wutnews.net/Application/Card/Assets/image/careplus.png" imageMode = "aspectfit"></image>
+			</view>
+			<view class = "arrayBottom">
+				<label class = "arrayText" onclick="test()" color = "rgb(120,120,120)">充值</label>
+				<label class = "arrayText" color = "rgb(120,120,120)">网费</label>
+				<label class = "arrayText" color = "rgb(120,120,120)">Care+</label>
+			</view>
+		</view>
+</body>
+
+
+<script type="text/javascript">
+	function test () {
+		alert("click");
+	} 
+
+	function success(text) {
+    var textarea = document.getElementById('test-response-text');
+    textarea.value = text;
+    test();
+}
+
+function fail(code) {
+    var textarea = document.getElementById('test-response-text');
+    textarea.value = 'Error code: ' + code;
+    test();
+}
+
+var request = new XMLHttpRequest(); // 新建XMLHttpRequest对象
+
+request.onreadystatechange = function () { // 状态发生变化时，函数被回调
+    if (request.readyState === 4) { // 成功完成
+        // 判断响应结果:
+        if (request.status === 200) {
+            // 成功，通过responseText拿到响应的文本:
+            return success(request.responseText);
+        } else {
+            // 失败，根据响应码判断失败原因:
+            return fail(request.status);
+        }
+    } else {
+        // HTTP请求还在继续...
+    }
+}
+
+// 发送请求:
+request.open('GET', '/api/categories');
+request.send();
+
+alert('请求已发送，请等待响应...');
+
+</script>
+</html>
