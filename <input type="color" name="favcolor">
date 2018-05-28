@@ -1,10 +1,17 @@
- <!DOCTYPE html>
+<!DOCTYPE HTML>
 <html lang="en" html-identify = "Token">
-<head>
-
- <input type="color" name="favcolor">
-
- </head>
 <body>
+<view class = "btnArray">
+			<view class = "arrayTop">
+				<image class = "topArrayImage" src = "https://web.wutnews.net/Application/Card/Assets/image/charge.png" imageMode = "aspectfit"></image>
+				<image class = "topArrayImage" src = "https://web.wutnews.net/Application/Card/Assets/image/web.png" imageMode = "aspectfit"></image>
+				<image class = "topArrayImage" src = "https://web.wutnews.net/Application/Card/Assets/image/careplus.png" imageMode = "aspectfit"></image>
+			</view>
+			<view class = "arrayBottom">
+				<label class = "arrayText" color = "rgb(120,120,120)">充值</label>
+				<label class = "arrayText" color = "rgb(120,120,120)">网费</label>
+				<label class = "arrayText" color = "rgb(120,120,120)">Care+</label>
+			</view>
+		</view>
 </body>
 </html>
