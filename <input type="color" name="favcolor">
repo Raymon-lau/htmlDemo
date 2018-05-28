@@ -1,1 +1,10 @@
+ <!DOCTYPE html>
+<html lang="en" html-identify = "Token">
+<head>
+
  <input type="color" name="favcolor">
+
+ </head>
+<body>
+</body>
+</html>
