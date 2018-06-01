@@ -47,6 +47,39 @@
 		}
 		
 	</style>
+
+	function success(text) {
+		var textarea = document.getElementById('test-response-text');	
+		textarea.value = text;
+	}
+
+	function fail(code) {
+		var textarea = document.getElementById('test-response-text');
+		textarea.value = 'Error code: ' + code;
+	}
+
+	function requestData{
+		
+	var request = new XMLHttpRequest();
+
+		request.onreadystatechange = function (){
+			if (request.readyState === 4) {
+				if (request.status ==200) {
+					return success(request.responseText);
+				}else{
+					return fail(request.status);
+				}
+			}else{
+				alert("请求:" + request);
+			}
+		}
+
+		request.open('GET','/api/categories');
+		request.send();
+
+	}
+
+
 </head>
 
 <body>
@@ -57,7 +90,7 @@
 				<image class = "topArrayImage" src = "https://web.wutnews.net/Application/Card/Assets/image/careplus.png" imageMode = "aspectfit"></image>
 			</view>
 			<view class = "arrayBottom">
-				<label class = "arrayText" color = "rgb(120,120,120)">充值</label>
+				<label class = "arrayText" onclick="requestData" color = "rgb(120,120,120)">充值</label>
 				<label class = "arrayText" color = "rgb(120,120,120)">网费</label>
 				<label class = "arrayText" color = "rgb(120,120,120)">Care+</label>
 			</view>
