@@ -1,0 +1,99 @@
+<!DOCTYPE HTML>
+<html lang="en" html-identify = "Token">
+<head>
+	<meta charset="UTF-8">
+	<title>校园卡</title>
+	<style>
+		body {
+			background-color: rgb(240,240,245);
+			width: calc(100%H);
+			height: calc(100%V);
+			display: flex;
+			flex-direction: column;
+		}
+
+.btnArray {
+			display: flex;
+			margin-top: 20px;
+			width: 92%;
+			height: 80px;
+			margin-left: 4%;
+			flex-wrap:wrap;
+		}
+.arrayTop {
+	width: 100%;
+	height: 28px;
+	display: flex;
+	flex-direction: row;
+		}
+
+.arrayBottom {
+			flex-direction: row;
+			width: 100%;
+			height: 24px;
+		}
+
+.topArrayImage {
+			width: 33.3%;
+			height : 20px;
+			imageMode :aspectfit;
+		}
+
+.arrayText {
+			height: 24px;
+			width: 33.3%;
+			text-align: center;
+			font-size: 13px;
+		}
+		
+	</style>
+
+	function success(text) {
+		var textarea = document.getElementById('test-response-text');	
+		textarea.value = text;
+	}
+
+	function fail(code) {
+		var textarea = document.getElementById('test-response-text');
+		textarea.value = 'Error code: ' + code;
+	}
+
+	function requestData{
+		
+	var request = new XMLHttpRequest();
+
+		request.onreadystatechange = function (){
+			if (request.readyState === 4) {
+				if (request.status ==200) {
+					return success(request.responseText);
+				}else{
+					return fail(request.status);
+				}
+			}else{
+				alert("请求:" + request);
+			}
+		}
+
+		request.open('GET','/api/categories');
+		request.send();
+
+	}
+
+
+</head>
+
+<body>
+<view class = "btnArray">
+			<view class = "arrayTop">
+				<image class = "topArrayImage" src = "https://web.wutnews.net/Application/Card/Assets/image/charge.png" imageMode = "aspectfit"></image>
+				<image class = "topArrayImage" src = "https://web.wutnews.net/Application/Card/Assets/image/web.png" imageMode = "aspectfit"></image>
+				<image class = "topArrayImage" src = "https://web.wutnews.net/Application/Card/Assets/image/careplus.png" imageMode = "aspectfit"></image>
+			</view>
+			<view class = "arrayBottom">
+				<label class = "arrayText" onclick="requestData" color = "rgb(120,120,120)">充值</label>
+				<label class = "arrayText" color = "rgb(120,120,120)">网费</label>
+				<label class = "arrayText" color = "rgb(120,120,120)">Care+</label>
+			</view>
+		</view>
+</body>
+</html>
