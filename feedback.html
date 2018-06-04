@@ -73,11 +73,12 @@
 		}
 
 		.sepLine {
+			margin-left: 5px;
 			height: 10px;
-			width: 1px;
 		}
 
 		.phoneImage {
+			margin-left: 5px;
 			height: 20px;
 			width: 20px;
 		}
@@ -135,21 +136,21 @@
 
 <body>
 	<view class = "feedBackView">
-			<!-- <input id='feedbackInput' type="textarea" name="fname" placeholder="请输入您的反馈意见,我们会为您不断进步"></input> -->
-			<textarea id='feedbackInput' placeholder="请输入您的反馈意见,我们会为您不断进步"></textarea>
+			<input id='feedbackInput' type="textarea" name="fname" placeholder="请输入您的反馈意见,我们会为您不断进步"></input>
+			<!-- <textarea id='feedbackInput' placeholder="请输入您的反馈意见,我们会为您不断进步"></textarea> -->
 
 			<label class="limitLabel">160/160</label>
 	</view>
 
-	<view class="limitNum"><label>160/160</label></view>
+	<!-- <view class="limitNum"><label>160/160</label></view> -->
 
 
 	<view class="confirm"><button onclick="comfirm()">提交</button></view>
 
 	<view class="contactView">
 		<image class = "onlineImage" src = "https://web.wutnews.net/Application/Card/Assets/image/charge.png" imageMode = "aspectfit"></image>
-		<label class="onlineLabel">在线客服</label>>
-		<view class = "sepLine"></view>
+		<label class="onlineLabel">在线客服</label>
+		<view class = "sepLine">|</view>
 
 		<image class = "phoneImage" src = "https://web.wutnews.net/Application/Card/Assets/image/web.png" imageMode = "aspectfit"></image>
 		<label>电话客服</label>
