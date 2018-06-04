@@ -1,0 +1,140 @@
+<!DOCTYPE HTML>
+<html lang="en" html-identify = "Token">
+<head>
+	<meta charset="UTF-8">
+	<title>意见反馈</title>
+	<style>
+		body {
+			background-color: rgb(250,250,250);
+			width: calc(100%H);
+			height: calc(100%V);
+			display: flex;
+			flex-direction: column;
+		}
+
+		.feedBackView {
+			display: flex;
+			margin-top: 20px;
+			width: 100%;
+			height: 180px;
+			/*flex-wrap:wrap;*/
+		}
+
+		.feedbackInput {
+			width: 100%;
+			height: 180px;
+			/*display: flex;*/
+			/*flex-direction: row;*/
+		}
+
+		.limitNum {
+			margin-right: 20px;
+			margin-bottom: 20px;
+			height: 20px;
+		}
+
+		.confirm {
+			position: fixed;
+			width: 100%;
+			margin-top: 40px;
+			background-color: rgb(196,82,77);
+			height: 40px;
+		}
+
+		.contactView {
+			margin-bottom: 100px;
+			width: 100%;
+			height: 20px;
+			background-color: green;
+		}
+
+		.onlineImage {
+			height: 20px;
+			width: 20px;
+		}
+
+		.onlineLabel {
+			margin-left: 5px;
+			height: 10px;
+			width: 100px;
+		}
+
+		.sepLine {
+			height: 10px;
+			width: 1px;
+		}
+
+		.phoneImage {
+			height: 20px;
+			width: 20px;
+		}
+
+
+		.tipView {
+			margin-bottom: 50px;
+
+		}
+		
+	</style>
+
+	<script type="text/javascript">
+		function success(text) {
+			var textarea = document.getElementById('test-response-text');	
+			textarea.value = text;
+		}
+
+		function fail(code) {
+			var textarea = document.getElementById('test-response-text');
+			textarea.value = 'Error code: ' + code;
+		}
+
+		function requestData (){
+			
+		var request = new XMLHttpRequest();
+
+			request.onreadystatechange = function (){
+				
+				if (request.readyState === 4) {
+					if (request.status ==200) {
+						return success(request.responseText);
+					}else{
+						return fail(request.status);
+					}
+				}else{
+					alert("请求:" + request);
+				}
+				console('111');
+			}
+
+			request.open('GET','/api/categories');
+			request.send();
+
+		}
+
+	</script>
+</head>
+
+<body>
+	<view class = "feedBackView">
+			<input id='feedbackInput' type="text" name="fname" placeholder="请输入您的反馈意见,我们会为您不断进步"></input>
+
+			<label class="limitNum">160/160</label>>
+
+	</view>
+
+
+	<view class="confirm"><button onclick="comfirm()">提交</button></view>
+
+	<view class="contactView">
+		<image class = "onlineImage" src = "https://web.wutnews.net/Application/Card/Assets/image/charge.png" imageMode = "aspectfit"></image>
+		<label class="onlineLabel">在线客服</label>>
+		<view class = "sepLine"></view>
+
+		<image class = "phoneImage" src = "https://web.wutnews.net/Application/Card/Assets/image/web.png" imageMode = "aspectfit"></image>
+		<label>电话客服</label>
+	</view>
+
+	<view class="tipView"><label>客服工作时间:工作日 9:00 ~ 21:00 / 假期 9:00 ~ 18:00</label>></view>
+
+</body>
+</html>
