@@ -84,52 +84,7 @@
 		
 	</style>
 
-	<script type="text/javascript">
-		function success(text) {
-			var textarea = document.getElementById('test-response-text');	
-			textarea.value = text;
-		}
-
-		function fail(code) {
-			var textarea = document.getElementById('test-response-text');
-			textarea.value = 'Error code: ' + code;
-		}
-
-		function requestData (){
-			
-		var request = new XMLHttpRequest();
-
-			request.onreadystatechange = function (){
-				
-				if (request.readyState === 4) {
-					if (request.status ==200) {
-						return success(request.responseText);
-					}else{
-						return fail(request.status);
-					}
-				}else{
-					alert("请求:" + request);
-				}
-				console('111');
-			}
-
-			request.open('GET','/api/categories');
-			request.send();
-
-		}
-
-
-		function comfirm (){
-			alert("提交");
-		}
-
-		function inputfeedback (e){
-			console.log(e);
-			var x = document.getElementById("feedbackInput").value;
-			console.log(x);
-		}
-
-	</script>
+	
 </head>
 
 <body>
