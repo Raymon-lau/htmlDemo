@@ -13,6 +13,12 @@
             flex-wrap: wrap;
         }
 
+        .feedbackView {
+            width: 100%;
+            height: 100px;
+            margin-top: 20px;
+        }
+
         .feedbacktextArea {
             position: relative;
         }
@@ -91,14 +97,23 @@
             token.alert("提示","你点击了电话客服");
         });
 
+        function inputfeedback (){
+            var x = document.getElementById("textView").value;
+            alert(x);
+            token.alert(x);
+        }
+
     </script>
 </head>
 <body>
-    <textArea class="feedbacktextArea" id = "textView" fontSize = "16px" style = "margin-top:20px;width: 100%;height: 100px;" placeholder="请输入您的反馈意见,我们会为您不断进步"></textArea>
 
-    <label class="limitLabel">160/160</label>
+    <view class="feedbackView">
+        <textArea class="feedbacktextArea" id = "textView" fontSize = "16px" style = "margin-top:0px;width: 100%;height: 100px;" placeholder="请输入您的反馈意见,我们会为您不断进步" onchange="inputfeedback()"></textArea>
 
-    <view><button id = "submitButton" class = "one" titleColor = "rgb(255,255,255)">提交</button></view>
+        <label class="limitLabel">160/160</label>
+    </view>
+
+    <button id = "submitButton" class = "one" titleColor = "rgb(255,255,255)">提交</button>
 
     <view class="contactView">
 
