@@ -19,15 +19,20 @@
 			background-color: yellow;
 		}
 
+		.feedbacktextare {
+			position: relative;
+		}
 
 		.limitLabel {
-			width: 100%;
-			margin-top: 160px;
+			width: 92%;
+			margin-left: 10px;
+			margin-top: -30px;
 			height: 20px;
 			font-size: 12px;
 			background-color: white;
 			text-align: right;
 			display: run-in;
+			position: absolute;
 		}
 
 		.confirm {
@@ -78,19 +83,26 @@
 		
 	</style>
 
+
+	<script type="text/javascript" charset="utf-8">
+		var button = document.getElementById("comfirm");
+        button.setOnClick(()=>{
+	        token.alert("提示","你居然敢点击我!!!");
+	    });
+	</script>
 	
 </head>
 
 <body id='body'>
 	<view class = "feedBackView">
 			<!-- <input id='feedbackInput' type="textarea" name="fname" placeholder="请输入您的反馈意见,我们会为您不断进步"></input> -->
-			<textarea id='feedbackInput' placeholder="请输入您的反馈意见,我们会为您不断进步" style = "margin-top:0px;width: 100%;height: 100%;" onchange="inputfeedback()"></textarea>
+			<textarea class="feedbacktextare" id='feedbackInput' placeholder="请输入您的反馈意见,我们会为您不断进步" style = "margin-top:0px;width: 100%;height: 100%;" onchange="inputfeedback()"></textarea>
 
 			<label class="limitLabel">160/160</label>
 	</view>
 
 
-	<view ><button onclick="comfirm()" class="confirm">提交</button></view>
+	<view ><button id="comfirm" class="confirm" titleColor = "rgb(250,250,250)">提交</button></view>
 
 	<view class="contactView">
 		<image class = "onlineImage" src = "https://web.wutnews.net/Application/Card/Assets/image/charge.png" imageMode = "aspectfit"></image>
