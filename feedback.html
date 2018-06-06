@@ -1,119 +1,97 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html lang="en" html-identify = "Token">
 <head>
-	<meta charset="UTF-8">
-	<title>意见反馈</title>
-	<style>
-		body {
-			background-color: rgb(250,250,250);
-			width: calc(100%H);
-			height: calc(100%V);
-			display: flex;
-			flex-direction: column;
-		}
+	<title>WebKit内存测试</title>
+    <style type="text/css" media="screen">
+        body {
+            background-color: rgb(240,240,249);
+            width: calc(100%H);
+            height: calc(100%V);
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+        }
 
-		.feedBackView {
-			margin-top: 20px;
-			width: 100%;
-			height: 180px;
-			background-color: yellow;
-		}
+        .one {
+            margin-top: 20px;
+            margin-left: 10%;
+            width :80%;
+            height :44px;
+            background-color: rgb(69,200,220);
+        }
 
-		.feedbacktextare {
-			position: relative;
-		}
+        .onlineImage {
+            height: 20px;
+            width: 20px;
+        }
 
-		.limitLabel {
-			width: 92%;
-			margin-left: 10px;
-			margin-top: -30px;
-			height: 20px;
-			font-size: 12px;
-			background-color: white;
-			text-align: right;
-			display: run-in;
-			position: absolute;
-		}
+        .onlineLabel {
+            margin-left: 5px;
+            height: 20px;
+        }
 
-		.confirm {
-			width: 100%;
-			margin-top: 40px;
-			background-color: rgb(196,82,77);
-			height: 40px;
-			text-align: center;
-		}
+        .sepLine {
+            margin-left: 5px;
+            margin-right: 5px;
+            height: 20px;
+            width:1px;
+            background-color: rgb(200,200,220);
+        }
 
-		.contactView {
-			margin-bottom: 100px;
-			width: 100%;
-			height: 20px;
-			text-align: center;
-			font-size: 9px;
-			display: block;
-		}
+        .contactView {
+            margin-top: 30px;
+            width: 100%;
+            height: 40px;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content:center;
+        }
 
-		.onlineImage {
-			height: 20px;
-			width: 20px;
-		}
+        .tipView {
+            margin-bottom: 50px;
+            text-align: center;
+            font-size: 14px;
+        }
 
-		.onlineLabel {
-			margin-left: 5px;
-			height: 10px;
-			width: 100px;
-		}
+    </style>
+	<script>
 
-		.sepLine {
-			margin-left: 5px;
-			height: 10px;
-		}
+        var textView = document.getElementById('textView');
+        var submitButton = document.getElementById('submitButton');
+        submitButton.setOnClick(()=>{
+            token.alert("文本框内容为",""+textView.text);
+        });
 
-		.phoneImage {
-			margin-left: 5px;
-			height: 20px;
-			width: 20px;
-		}
+        var labelOne = document.getElementById('labelOne');
+        var labelTwo = document.getElementById('labelTwo');
 
+        labelOne.setOnClick(()=>{
+            token.alert("提示","你点击了在线客服");
+        });
 
-		.tipView {
-			margin-bottom: 50px;
-			text-align: center;
-			font-size: 7px;
-		}
-		
-	</style>
+        labelTwo.setOnClick(()=>{
+            token.alert("提示","你点击了电话客服");
+        });
 
-
-	<script type="text/javascript" charset="utf-8">
-		var button = document.getElementById("comfirm");
-        button.setOnClick(()=>{
-	        token.alert("提示","你居然敢点击我!!!");
-	    });
-	</script>
-	
+    </script>
 </head>
+<body>
+    <textArea id = "textView" fontSize = "16px" style = "margin-top:20px;width: 100%;height: 100px;"></textArea>
+    <button id = "submitButton" class = "one" titleColor = "rgb(255,255,255)">提交</button>
 
-<body id='body'>
-	<view class = "feedBackView">
-			<!-- <input id='feedbackInput' type="textarea" name="fname" placeholder="请输入您的反馈意见,我们会为您不断进步"></input> -->
-			<textarea class="feedbacktextare" id='feedbackInput' placeholder="请输入您的反馈意见,我们会为您不断进步" style = "margin-top:0px;width: 100%;height: 100%;" onchange="inputfeedback()"></textarea>
+    <view class="contactView">
 
-			<label class="limitLabel">160/160</label>
-	</view>
+        <image class = "onlineImage" src = "https://web.wutnews.net/Application/Card/Assets/image/charge.png" imageMode = "aspectfit"></image>
 
+        <label id = "labelOne" class="onlineLabel">在线客服</label>
 
-	<view ><button id="comfirm" class="confirm" titleColor = "rgb(250,250,250)">提交</button></view>
+        <view class = "sepLine">|</view>
 
-	<view class="contactView">
-		<image class = "onlineImage" src = "https://web.wutnews.net/Application/Card/Assets/image/charge.png" imageMode = "aspectfit"></image>
-		<label class="onlineLabel">在线客服</label>
-		<view class = "sepLine">|</view>
+        <image class = "onlineImage" src = "https://web.wutnews.net/Application/Card/Assets/image/web.png" imageMode = "aspectfit"></image>
+        <label id = "labelTwo" class="onlineLabel">电话客服</label>
+    </view>
 
-		<image class = "phoneImage" src = "https://web.wutnews.net/Application/Card/Assets/image/web.png" imageMode = "aspectfit"></image>
-		<label>电话客服</label>
-	</view>
-
-	<view class="tipView"><label>客服工作时间:工作日 9:00 ~ 21:00 / 假期 9:00 ~ 18:00</label></view>
-
+    <label class="tipView">客服工作时间:工作日 9:00 ~ 21:00 / 假期 9:00 ~ 18:00</label>
 </body>
 </html>
