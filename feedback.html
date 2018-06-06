@@ -98,9 +98,17 @@
             document.pushNavigatorWithURL("https://raw.githubusercontent.com/cx478815108/TokenHybridHTML/master/examsEnter/examples.html");
         });
 
-        textView.onBeginEditiong(()=>{
-            token.alert("ddd");
-        })
+        textView.onBeginEditing(()=>{
+            token.alert("开始输入");
+        });
+        
+        textView.onEndEditing(()=>{
+            token.alert("结束输入");
+        });
+
+        textView.onTextChange((text)=>{
+            token.alert(text);
+        });
 
     </script>
 </head>
